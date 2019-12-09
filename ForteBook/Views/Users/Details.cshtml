@@ -1,0 +1,15 @@
+﻿@model ForteBook.Models.User
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+
+<ul>
+    <li>Profile: @Model.Role</li>
+    <li>Subscribed to Newsletter: @Model.IsSubscribedToNewsletter</li>
+</ul>
+
+@Html.ActionLink("Edit", "Edit", "Users", new { id = Model.Id }, new { @class = "btn btn-primary" })
+
