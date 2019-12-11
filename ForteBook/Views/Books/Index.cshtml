@@ -5,28 +5,51 @@
 }
 
 <h2>Books</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any books yet.</p>
-}
-else
-{
-    
+
+<p>
     @Html.ActionLink("New Book", "BookForm", "Books", null, new { @class = "btn btn-primary" })
-    
-    <table id="books" class="table table-bordered table-hover">
-        <thead>
+</p>
+   
+
+<table id="books" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
             <tr>
-                <th>Name</th>
+                <td>@Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)</td>
+                <td>
+                    <button data-book-id="@book.Id"class="btn-link js-delete">Delete</button>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var book in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#books").DataTable();
+
+            $("#books").on("click",".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure yopu want to delete this book?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/books/" + button.attr('data-book-id'),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 }
