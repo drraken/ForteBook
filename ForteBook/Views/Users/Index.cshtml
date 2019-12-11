@@ -12,7 +12,7 @@
        <thead>
            <tr>
                <th>Name</th>
-               
+               <th>Delete</th>
            </tr>
        </thead>
        <tbody>
@@ -20,7 +20,32 @@
             {       
                 <tr>
                     <td>@Html.ActionLink((user.FirstName + " " + user.LastName), "Details", "Users", new { id = user.Id }, null)</td>
+                    <td>
+                        <button data-user-id="@user.Id" class="btn-link js-delete">Delete</button>
+                    </td>
                 </tr>
             }
        </tbody>
 </table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#users").DataTable();
+
+            $("#users").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure yopu want to delete this user?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/users/" + button.attr('data-user-id'),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>    
+}
