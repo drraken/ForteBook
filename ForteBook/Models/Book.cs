@@ -23,6 +23,10 @@ namespace ForteBook.Models
         [Display(Name="Genre Type")]
         public int GenreTypeId { get; set; }
 
+        //public Rating Rating { get; set; }
+
+        //public int RatingId { get; set; }
+
     }
 
 }

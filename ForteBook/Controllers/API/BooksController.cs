@@ -20,6 +20,7 @@ namespace ForteBook.Controllers.API
        
         // DELETE /api/users/1
         [HttpDelete]
+        [Authorize(Roles = "CanManageBooks")]
         public void DeleteBook(int id)
         {
             var bookInDb = _context.Books.SingleOrDefault(u => u.Id == id);

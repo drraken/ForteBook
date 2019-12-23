@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using ForteBook.Models;
 using ForteBook.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace ForteBook.Controllers
 {
@@ -27,16 +28,30 @@ namespace ForteBook.Controllers
         {
             var books = _context.Books.Include(b => b.GenreType).ToList();
 
-            return View(books);
+
+            if (User.IsInRole("CanManageBooks"))
+                return View(books);
+            return View("ReadOnlyList", books);
+            
         }
         public ActionResult Details(int id)
         {
             var book = _context.Books.Include(b => b.GenreType).SingleOrDefault(b => b.Id == id);
+            //var book = _context.Books.Include(b=>b.GenreType).SingleOrDefault(b=> b.Id == id);
+            //var rating = _context.Ratings.ToList();
+            //var viewModel = new RatingsViewModel
+            //{
+            //    Book = book,
+            //    Rating = rating
+            //};
 
             if (book == null)
                 return HttpNotFound();
 
-            return View(book);
+            if (User.IsInRole("CanManageBooks"))
+                return View(book);
+
+            return View("ReadOnlyDetails", book);
         }
         public ActionResult BookForm()
         {
@@ -51,6 +66,7 @@ namespace ForteBook.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="CanManageBooks")]
         public ActionResult Save(Book book)
         {
             if (!ModelState.IsValid)
@@ -85,6 +101,7 @@ namespace ForteBook.Controllers
 
             return RedirectToAction("Index", "Books");
         }
+        [Authorize(Roles = "CanManageBooks")]
         public ActionResult Edit(int id)
         {
             var book = _context.Books.SingleOrDefault(b => b.Id == id);
@@ -98,12 +115,43 @@ namespace ForteBook.Controllers
             };
             return View("BookForm", viewModel);
         }
+        //public ActionResult Ratings()
+        //{
+           
+        //    var viewModel = new RatingsViewModel
+        //    {
+        //        Rating = new Rating(),
+        //        Book = _context.Books.ToList(),
+        //    };
+
+        //    return View("Ratings", viewModel);
+        //}
+        //public ActionResult SaveRating(Rating rating)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        var viewModel = new RatingsViewModel
+        //        {
+        //            Rating = new Rating(),
+        //            Book = _context.Books.ToList(),
+                
+        //        };
+        //        return View("Ratings", viewModel);
+        //    }
+           
+            
+
+        //    _context.Ratings.Add(rating);
+        //    try
+        //    {
+        //        _context.SaveChanges();
+        //    }
+        //    catch (DbEntityValidationException e)
+        //    {
+        //        Console.WriteLine(e);
+        //    }
+
+        //    return RedirectToAction("Index", "Books");
+        //}
     }
-
-    //[Route("books/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1, 12)}")]
-    //public ActionResult ByReleaseDate(int year, int month)
-    //{
-    //    return Content(year + "/" + month);
-    //}
-
 }

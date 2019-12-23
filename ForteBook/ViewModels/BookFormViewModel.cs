@@ -10,6 +10,7 @@ namespace ForteBook.ViewModels
     {
         public Book Book { get; set; }
         public IEnumerable<GenreType> GenreTypes { get; set; }
+
         public string Title
         {
             get
