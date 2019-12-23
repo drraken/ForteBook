@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ForteBook.Models;
 using ForteBook.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace ForteBook.Controllers
 {
@@ -23,49 +24,42 @@ namespace ForteBook.Controllers
             _context.Dispose();
         }
 
-        public ActionResult UserForm()
-        {
-            var viewModel = new UserFormViewModel
-            {
-                User = new User()
-            };
-           
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Save(User user)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        var viewModel = new UserFormViewModel
+        //        {
+        //            User = user
+        //        };
+        //        return View("UserForm",viewModel);
+        //    }
+        //    if (user.Id == 0)
+        //        _context.Users.Add(user);
+        //    else
+        //    {
+        //        var userInDb = _context.Users.Single(u => u.Id == user.Id);
+        //        userInDb.FirstName = user.FirstName;
+        //        userInDb.LastName = user.LastName;
+        //        userInDb.IsSubscribedToNewsletter = user.IsSubscribedToNewsletter;
+        //    }
 
-            return View(viewModel);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Save(User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                var viewModel = new UserFormViewModel
-                {
-                    User = user
-                };
-                return View("UserForm",viewModel);
-            }
-            if (user.Id == 0)
-                _context.Users.Add(user);
-            else
-            {
-                var userInDb = _context.Users.Single(u => u.Id == user.Id);
-                userInDb.FirstName = user.FirstName;
-                userInDb.LastName = user.LastName;
-                userInDb.IsSubscribedToNewsletter = user.IsSubscribedToNewsletter;
-            }
+        //    _context.SaveChanges();
 
-            _context.SaveChanges();
-
-            return RedirectToAction("Index","Users");
-        }
+        //    return RedirectToAction("Index","Users");
+        //}
         public ViewResult Index()
         {
             var users = _context.Users.ToList();
 
-            return View(users);
+            if (User.IsInRole("CanManageBooks"))
+                return View(users);
+
+            return View("ReadOnlyIndex",users);
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             var user = _context.Users.SingleOrDefault(c => c.Id == id);
 
@@ -73,25 +67,17 @@ namespace ForteBook.Controllers
                 return HttpNotFound();
             return View(user);
         }
-        public ActionResult Edit(int id)
-        {
-            var user = _context.Users.SingleOrDefault(u => u.Id == id);
-            if (user == null)
-                return HttpNotFound();
-
-            var viewModel = new UserFormViewModel
-            {
-                User = user
-            };
-            return View("UserForm", viewModel);
-        }
-        //private IEnumerable<User> GetUsers()
+        //public ActionResult Edit(int id)
         //{
-        //    return new List<User>
+        //    var user = _context.Users.SingleOrDefault(u => u.Id == id);
+        //    if (user == null)
+        //        return HttpNotFound();
+
+        //    var viewModel = new UserFormViewModel
         //    {
-        //       new User { FirstName = "Customer", LastName = "1"},
-        //       new User { FirstName = "Customer", LastName = "2"}
+        //        User = user
         //    };
+        //    return View("UserForm", viewModel);
         //}
     }
 }

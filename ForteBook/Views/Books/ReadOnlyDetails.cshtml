@@ -1,5 +1,4 @@
-﻿@*@model ForteBook.ViewModels.RatingsViewModel*@
-@model ForteBook.Models.Book
+﻿@model ForteBook.Models.Book
 @{
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,8 +10,7 @@
 <h2>@Model.Name</h2>
 
 <ul>
-    <li>Genre: @Model.GenreTypeId</li>
+    <li>Genre: @Model.GenreType.Name</li>
     <li>Description: @Model.Description</li>
-
 </ul>
-@Html.ActionLink("Edit", "Edit", "Books", new { id = Model.Id }, new { @class = "btn btn-primary" })
+<p>Book rating:(in development)</p>
