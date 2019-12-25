@@ -25,13 +25,13 @@ namespace ForteBook.Controllers
         }
         
         
-        public ActionResult Ratings()
+        public ActionResult Ratings(int id)
         {
-
+            var book = _context.Books.SingleOrDefault(b => b.Id == id);
             var viewModel = new RatingsViewModel
             {
                 Rating = new Rating(),
-                Book = _context.Books.ToList(),
+                Book = book
             };
 
             return View("Ratings", viewModel);
@@ -39,14 +39,16 @@ namespace ForteBook.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult SaveRating(Rating rating)
+        public ActionResult SaveRating(int id, Rating rating)
         {
             if (!ModelState.IsValid)
             {
+                var book = _context.Books.SingleOrDefault(b => b.Id == id);
+
                 var viewModel = new RatingsViewModel
                 {
                     Rating = new Rating(),
-                    Book = _context.Books.ToList(),
+                    Book = book
 
                 };
                 return View("Ratings", viewModel);
@@ -66,5 +68,6 @@ namespace ForteBook.Controllers
 
             return RedirectToAction("Index", "Books");
         }
+       
     }
 }

@@ -7,22 +7,13 @@
 
 @*var className = Model.Book.Co > 5 ? "popular" : null;*@
 
-<h2>Rate book</h2>
+<h2>Rate book: "@Model.Book.Name"</h2>
   
-    @using (Html.BeginForm("SaveRating", "Ratings"))
+    @using (Html.BeginForm("SaveRating", "Ratings", new { id = Model.Book.Id }))
     {
-<div class="form-group">
-    @Html.LabelFor(m => m.Rating.BookId)
-    @Html.DropDownListFor(m => m.Rating.BookId, new SelectList(Model.Book, "Id", "Name"), "Select Book", new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Rating.BookId)
-</div>
-        @*<div class="form-group">
-            @Html.LabelFor(m => m.Rating.ApplicationUserId)
-            @Html.DropDownListFor(m => m.Rating.ApplicationUserId, new SelectList(Model.ApplicationUser, "Id", "Email"), "Select U", new { @class = "form-control" })
-        </div>*@
+
 <div class="form-group">
     @Html.LabelFor(m => m.Rating.Value)
-    @*Html.TextBoxFor(m => m.Rating.Value, new { @class = "form-control" })*@
     @Html.DropDownListFor(m => m.Rating.Value, new List<SelectListItem>
     {
     new SelectListItem { Text= "1", Value = "1", Selected=true},
@@ -30,12 +21,12 @@
     new SelectListItem { Text= "3", Value = "3"},
     new SelectListItem { Text= "4", Value = "4"},
     new SelectListItem { Text= "5", Value = "5"}
-    },"Select Rating", new { @class = "form-control" })
+    }, "Select Rating", new { @class = "form-control" })
 
     @Html.ValidationMessageFor(m => m.Rating.Value)
+    @Html.ValidationMessageFor(m => m.Rating.BookId)
 </div>
-
-        //@Html.HiddenFor(m => m.Rating.ApplicationUserId(nullable: false,defaultValue: '1'))
+        @Html.HiddenFor(m=>m.Rating.BookId, new { id="someId", Value = Model.Book.Id } )
         @Html.AntiForgeryToken()
         <button type="submit" class="btn btn-primary ">Save</button>
     }

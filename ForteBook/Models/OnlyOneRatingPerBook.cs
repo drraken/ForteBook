@@ -9,7 +9,6 @@ namespace ForteBook.Models
 {
     public class OnlyOneRatingPerBook : ValidationAttribute
     {
-        //public Rating ratingDb { get; set; }
         private ApplicationDbContext _context;
 
         public OnlyOneRatingPerBook()

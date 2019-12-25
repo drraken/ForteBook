@@ -1,16 +1,50 @@
-﻿@model ForteBook.Models.Book
+﻿@model ForteBook.ViewModels.BookRatingViewModel
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = Model.Book.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @*var className = Model.Book.Co > 5 ? "popular" : null;*@
 
 
-<h2>@Model.Name</h2>
+@{
+    decimal bookRate = 0;
+    decimal counter = 0;
+    decimal roundfinalRate = 0;
+
+    foreach (var rate in Model.Ratings)
+    {
+        if (rate.BookId == Model.Book.Id)
+        {
+            counter += 1;
+            bookRate += rate.Value;
+        }
+    }
+    if(bookRate != 0 && counter != 0)
+    {
+        decimal finalRate = bookRate / counter;
+        roundfinalRate = Math.Ceiling(finalRate * 100) / 100;
+    }
+
+
+}
+
+<h2>@Model.Book.Name</h2>
 
 <ul>
-    <li>Genre: @Model.GenreType.Name</li>
-    <li>Description: @Model.Description</li>
+    <li>Genre: @Model.Book.GenreType.Name</li>
+    <li>Description: @Model.Book.Description</li>
+    @if (roundfinalRate == 0)
+    {
+        <li>Rate: No rates yet...</li>
+    }
+    else
+    {
+        <li>Rate: @roundfinalRate/5</li>
+    }
 </ul>
-<p>Book rating:(in development)</p>
+
+
+
+
+@Html.ActionLink("Rate", "Ratings", "Ratings", new { id = Model.Book.Id }, new { @class = "btn btn-primary" })

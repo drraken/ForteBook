@@ -23,33 +23,6 @@ namespace ForteBook.Controllers
         {
             _context.Dispose();
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Save(User user)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var viewModel = new UserFormViewModel
-        //        {
-        //            User = user
-        //        };
-        //        return View("UserForm",viewModel);
-        //    }
-        //    if (user.Id == 0)
-        //        _context.Users.Add(user);
-        //    else
-        //    {
-        //        var userInDb = _context.Users.Single(u => u.Id == user.Id);
-        //        userInDb.FirstName = user.FirstName;
-        //        userInDb.LastName = user.LastName;
-        //        userInDb.IsSubscribedToNewsletter = user.IsSubscribedToNewsletter;
-        //    }
-
-        //    _context.SaveChanges();
-
-        //    return RedirectToAction("Index","Users");
-        //}
         public ViewResult Index()
         {
             var users = _context.Users.ToList();
@@ -67,17 +40,5 @@ namespace ForteBook.Controllers
                 return HttpNotFound();
             return View(user);
         }
-        //public ActionResult Edit(int id)
-        //{
-        //    var user = _context.Users.SingleOrDefault(u => u.Id == id);
-        //    if (user == null)
-        //        return HttpNotFound();
-
-        //    var viewModel = new UserFormViewModel
-        //    {
-        //        User = user
-        //    };
-        //    return View("UserForm", viewModel);
-        //}
     }
 }
