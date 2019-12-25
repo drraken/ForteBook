@@ -14,18 +14,15 @@
                         Id = c.Int(nullable: false, identity: true),
                         Value = c.Int(nullable: false),
                         ApplicationUserId = c.String(maxLength: 128),
+                        BookId = c.Int(nullable: false)
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
                 .Index(t => t.ApplicationUserId);
-            
-       
+
         }
         
         public override void Down()
         {
-            
-            DropForeignKey("dbo.Ratings", "ApplicationUserId", "dbo.AspNetUsers");
             DropIndex("dbo.Ratings", new[] { "ApplicationUserId" });
             DropTable("dbo.Ratings");
         }

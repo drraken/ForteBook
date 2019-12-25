@@ -12,9 +12,8 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Rating = c.Int(),
-                        Description = c.String(),
+                        Name = c.String(nullable: false, maxLength: 255),
+                        Description = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
