@@ -318,26 +318,6 @@
     <Compile Include="Migrations\201911261851369_PopulateBooks.designer.cs">
       <DependentUpon>201911261851369_PopulateBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911261935518_ApplyAnnotationsToBookModel.cs" />
-    <Compile Include="Migrations\201911261935518_ApplyAnnotationsToBookModel.designer.cs">
-      <DependentUpon>201911261935518_ApplyAnnotationsToBookModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911261938145_PopulateUsers.cs" />
-    <Compile Include="Migrations\201911261938145_PopulateUsers.designer.cs">
-      <DependentUpon>201911261938145_PopulateUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911301852047_ChangesToUserModel.cs" />
-    <Compile Include="Migrations\201911301852047_ChangesToUserModel.designer.cs">
-      <DependentUpon>201911301852047_ChangesToUserModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911302147477_AddGenreToBookModel.cs" />
-    <Compile Include="Migrations\201911302147477_AddGenreToBookModel.designer.cs">
-      <DependentUpon>201911302147477_AddGenreToBookModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911302202399_ProperIdForUser.cs" />
-    <Compile Include="Migrations\201911302202399_ProperIdForUser.designer.cs">
-      <DependentUpon>201911302202399_ProperIdForUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201911302228567_AddGenreType.cs" />
     <Compile Include="Migrations\201911302228567_AddGenreType.designer.cs">
       <DependentUpon>201911302228567_AddGenreType.cs</DependentUpon>
@@ -346,65 +326,21 @@
     <Compile Include="Migrations\201911302236390_PopulateGenreTypes.designer.cs">
       <DependentUpon>201911302236390_PopulateGenreTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912011745439_removeGenreFromBook.cs" />
-    <Compile Include="Migrations\201912011745439_removeGenreFromBook.designer.cs">
-      <DependentUpon>201912011745439_removeGenreFromBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912012249008_removeUnnecesaryyTable.cs" />
-    <Compile Include="Migrations\201912012249008_removeUnnecesaryyTable.designer.cs">
-      <DependentUpon>201912012249008_removeUnnecesaryyTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021806147_RecreateingDatabase.cs" />
-    <Compile Include="Migrations\201912021806147_RecreateingDatabase.designer.cs">
-      <DependentUpon>201912021806147_RecreateingDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021813499_GenreTypeRecreate.cs" />
-    <Compile Include="Migrations\201912021813499_GenreTypeRecreate.designer.cs">
-      <DependentUpon>201912021813499_GenreTypeRecreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021820140_NewPopulateGenreTypes.cs" />
-    <Compile Include="Migrations\201912021820140_NewPopulateGenreTypes.designer.cs">
-      <DependentUpon>201912021820140_NewPopulateGenreTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021822271_OneMoreMigration.cs" />
-    <Compile Include="Migrations\201912021822271_OneMoreMigration.designer.cs">
-      <DependentUpon>201912021822271_OneMoreMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021824564_OneMoreMigration1.cs" />
-    <Compile Include="Migrations\201912021824564_OneMoreMigration1.designer.cs">
-      <DependentUpon>201912021824564_OneMoreMigration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912081833147_OneMoreMigration11.cs" />
-    <Compile Include="Migrations\201912081833147_OneMoreMigration11.designer.cs">
-      <DependentUpon>201912081833147_OneMoreMigration11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912081839240_finallCleanup.cs" />
-    <Compile Include="Migrations\201912081839240_finallCleanup.designer.cs">
-      <DependentUpon>201912081839240_finallCleanup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912112036158_SeedUsers.cs" />
-    <Compile Include="Migrations\201912112036158_SeedUsers.designer.cs">
-      <DependentUpon>201912112036158_SeedUsers.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201912112038220_SeedUsers2.cs" />
     <Compile Include="Migrations\201912112038220_SeedUsers2.designer.cs">
       <DependentUpon>201912112038220_SeedUsers2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912131932281_RatingsModel.cs" />
-    <Compile Include="Migrations\201912131932281_RatingsModel.designer.cs">
-      <DependentUpon>201912131932281_RatingsModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201912131951013_RatingsModels.cs" />
     <Compile Include="Migrations\201912131951013_RatingsModels.designer.cs">
       <DependentUpon>201912131951013_RatingsModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912131957170_EditBookModel.cs" />
-    <Compile Include="Migrations\201912131957170_EditBookModel.designer.cs">
-      <DependentUpon>201912131957170_EditBookModel.cs</DependentUpon>
+    <Compile Include="Migrations\201912251928072_changesNew.cs" />
+    <Compile Include="Migrations\201912251928072_changesNew.designer.cs">
+      <DependentUpon>201912251928072_changesNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912181650557_changesInDb.cs" />
-    <Compile Include="Migrations\201912181650557_changesInDb.designer.cs">
-      <DependentUpon>201912181650557_changesInDb.cs</DependentUpon>
+    <Compile Include="Migrations\201912252305300_populatingRatings.cs" />
+    <Compile Include="Migrations\201912252305300_populatingRatings.designer.cs">
+      <DependentUpon>201912252305300_populatingRatings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -418,6 +354,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BookFormViewModel.cs" />
+    <Compile Include="ViewModels\BookRatingViewModel.cs" />
+    <Compile Include="ViewModels\RatingListModelView.cs" />
     <Compile Include="ViewModels\RatingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -531,6 +469,9 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\HP-cover.jpg" />
+    <Content Include="Content\Lord-cover.jpg" />
+    <Content Include="Content\TwoCities-cover.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -544,6 +485,8 @@
     </Content>
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\ForteBook - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\ForteBook1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -660,7 +603,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Books\ReadOnlyList.cshtml" />
+    <Content Include="Views\Books\ReadOnlyIndex.cshtml" />
     <Content Include="Views\Books\ReadOnlyDetails.cshtml" />
     <Content Include="Views\Ratings\Ratings.cshtml" />
     <Content Include="Views\Users\ReadOnlyIndex.cshtml" />
@@ -691,71 +634,23 @@
     <EmbeddedResource Include="Migrations\201911261851369_PopulateBooks.resx">
       <DependentUpon>201911261851369_PopulateBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911261935518_ApplyAnnotationsToBookModel.resx">
-      <DependentUpon>201911261935518_ApplyAnnotationsToBookModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911261938145_PopulateUsers.resx">
-      <DependentUpon>201911261938145_PopulateUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911301852047_ChangesToUserModel.resx">
-      <DependentUpon>201911301852047_ChangesToUserModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911302147477_AddGenreToBookModel.resx">
-      <DependentUpon>201911302147477_AddGenreToBookModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911302202399_ProperIdForUser.resx">
-      <DependentUpon>201911302202399_ProperIdForUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911302228567_AddGenreType.resx">
       <DependentUpon>201911302228567_AddGenreType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911302236390_PopulateGenreTypes.resx">
       <DependentUpon>201911302236390_PopulateGenreTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912011745439_removeGenreFromBook.resx">
-      <DependentUpon>201912011745439_removeGenreFromBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912012249008_removeUnnecesaryyTable.resx">
-      <DependentUpon>201912012249008_removeUnnecesaryyTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021806147_RecreateingDatabase.resx">
-      <DependentUpon>201912021806147_RecreateingDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021813499_GenreTypeRecreate.resx">
-      <DependentUpon>201912021813499_GenreTypeRecreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021820140_NewPopulateGenreTypes.resx">
-      <DependentUpon>201912021820140_NewPopulateGenreTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021822271_OneMoreMigration.resx">
-      <DependentUpon>201912021822271_OneMoreMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021824564_OneMoreMigration1.resx">
-      <DependentUpon>201912021824564_OneMoreMigration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912081833147_OneMoreMigration11.resx">
-      <DependentUpon>201912081833147_OneMoreMigration11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912081839240_finallCleanup.resx">
-      <DependentUpon>201912081839240_finallCleanup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912112036158_SeedUsers.resx">
-      <DependentUpon>201912112036158_SeedUsers.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912112038220_SeedUsers2.resx">
       <DependentUpon>201912112038220_SeedUsers2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912131932281_RatingsModel.resx">
-      <DependentUpon>201912131932281_RatingsModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912131951013_RatingsModels.resx">
       <DependentUpon>201912131951013_RatingsModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912131957170_EditBookModel.resx">
-      <DependentUpon>201912131957170_EditBookModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912251928072_changesNew.resx">
+      <DependentUpon>201912251928072_changesNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912181650557_changesInDb.resx">
-      <DependentUpon>201912181650557_changesInDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912252305300_populatingRatings.resx">
+      <DependentUpon>201912252305300_populatingRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

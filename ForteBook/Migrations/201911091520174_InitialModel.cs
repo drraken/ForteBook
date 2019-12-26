@@ -31,17 +31,6 @@
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Users",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Role = c.String()
-                })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {

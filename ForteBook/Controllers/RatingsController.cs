@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using ForteBook.Models;
 using ForteBook.ViewModels;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace ForteBook.Controllers
 {
@@ -25,36 +25,37 @@ namespace ForteBook.Controllers
         }
         
         
-        public ActionResult Ratings()
+        public ActionResult Ratings(int id)
         {
-
+            var book = _context.Books.SingleOrDefault(b => b.Id == id);
             var viewModel = new RatingsViewModel
             {
                 Rating = new Rating(),
-                Book = _context.Books.ToList(),
+                Book = book
             };
 
             return View("Ratings", viewModel);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
+        //[ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult SaveRating(Rating rating)
+        [HttpPost]
+        public ActionResult SaveRating(int id, Rating rating)
         {
             if (!ModelState.IsValid)
             {
+                var book = _context.Books.SingleOrDefault(b => b.Id == id);
+
                 var viewModel = new RatingsViewModel
                 {
                     Rating = new Rating(),
-                    Book = _context.Books.ToList(),
+                    Book = book
 
                 };
                 return View("Ratings", viewModel);
             }
-
-
-
-            _context.Ratings.Add(rating);
+            if(rating.Id == 0)
+                _context.Ratings.Add(rating);
             try
             {
                 _context.SaveChanges();
@@ -66,5 +67,6 @@ namespace ForteBook.Controllers
 
             return RedirectToAction("Index", "Books");
         }
+       
     }
 }

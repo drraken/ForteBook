@@ -16,7 +16,7 @@
                 INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'8363a7ad-cf04-4f88-8515-18a46217fae2', N'CanManageBooks')               
 
                 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'23bc4bf4-ca09-4c07-9562-33d6c622cba6', N'8363a7ad-cf04-4f88-8515-18a46217fae2')
-");
+                ");
         }
         
         public override void Down()

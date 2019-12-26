@@ -7,13 +7,13 @@ namespace ForteBook.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0-preview2-19525-03")]
-    public sealed partial class GenreTypeRecreate : IMigrationMetadata
+    public sealed partial class populatingRatings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(GenreTypeRecreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(populatingRatings));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912021813499_GenreTypeRecreate"; }
+            get { return "201912252305300_populatingRatings"; }
         }
         
         string IMigrationMetadata.Source

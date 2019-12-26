@@ -6,10 +6,10 @@ using ForteBook.Models;
 
 namespace ForteBook.ViewModels
 {
-    public class RatingsViewModel
+    public class BookRatingViewModel
     {
-        public Rating Rating { get; set; }    
         public Book Book { get; set; }
+        public IEnumerable<Rating> Ratings { get; set; }
         
     }
 }

@@ -26,32 +26,37 @@ namespace ForteBook.Controllers
         }
         public ViewResult Index()
         {
-            var books = _context.Books.Include(b => b.GenreType).ToList();
+            var books = _context.Books.ToList();
+            var ratings = _context.Ratings.ToList();
+
+            var viewModel = new RatingListModelView
+            {
+                Ratings = ratings,
+                Book = books
+            };
 
 
             if (User.IsInRole("CanManageBooks"))
-                return View(books);
-            return View("ReadOnlyList", books);
+                return View(viewModel);
+            return View("ReadOnlyIndex", viewModel);
             
         }
         public ActionResult Details(int id)
         {
             var book = _context.Books.Include(b => b.GenreType).SingleOrDefault(b => b.Id == id);
-            //var book = _context.Books.Include(b=>b.GenreType).SingleOrDefault(b=> b.Id == id);
-            //var rating = _context.Ratings.ToList();
-            //var viewModel = new RatingsViewModel
-            //{
-            //    Book = book,
-            //    Rating = rating
-            //};
+            var viewModel = new BookRatingViewModel
+            {
+                Book = book,
+                Ratings = _context.Ratings.ToList()
+            };
 
-            if (book == null)
+            if (viewModel == null)
                 return HttpNotFound();
 
             if (User.IsInRole("CanManageBooks"))
-                return View(book);
+                return View(viewModel);
 
-            return View("ReadOnlyDetails", book);
+            return View("ReadOnlyDetails", viewModel);
         }
         public ActionResult BookForm()
         {
@@ -115,43 +120,5 @@ namespace ForteBook.Controllers
             };
             return View("BookForm", viewModel);
         }
-        //public ActionResult Ratings()
-        //{
-           
-        //    var viewModel = new RatingsViewModel
-        //    {
-        //        Rating = new Rating(),
-        //        Book = _context.Books.ToList(),
-        //    };
-
-        //    return View("Ratings", viewModel);
-        //}
-        //public ActionResult SaveRating(Rating rating)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var viewModel = new RatingsViewModel
-        //        {
-        //            Rating = new Rating(),
-        //            Book = _context.Books.ToList(),
-                
-        //        };
-        //        return View("Ratings", viewModel);
-        //    }
-           
-            
-
-        //    _context.Ratings.Add(rating);
-        //    try
-        //    {
-        //        _context.SaveChanges();
-        //    }
-        //    catch (DbEntityValidationException e)
-        //    {
-        //        Console.WriteLine(e);
-        //    }
-
-        //    return RedirectToAction("Index", "Books");
-        //}
     }
 }

@@ -17,16 +17,14 @@
                 .PrimaryKey(t => t.Id);
             
             AddColumn("dbo.Books", "GenreTypeId", c => c.Byte(nullable: false));
-            AddColumn("dbo.Books", "GenreType_Id", c => c.Int());
-            CreateIndex("dbo.Books", "GenreType_Id");
-            AddForeignKey("dbo.Books", "GenreType_Id", "dbo.GenreTypes", "Id");
+            CreateIndex("dbo.Books", "GenreTypeId");
+            AddForeignKey("dbo.Books", "GenreTypeId", "dbo.GenreTypes", "Id");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Books", "GenreType_Id", "dbo.GenreTypes");
-            DropIndex("dbo.Books", new[] { "GenreType_Id" });
-            DropColumn("dbo.Books", "GenreType_Id");
+            DropForeignKey("dbo.Books", "GenreTypeId", "dbo.GenreTypes");
+            DropIndex("dbo.Books", new[] { "GenreTypeId" });
             DropColumn("dbo.Books", "GenreTypeId");
             DropTable("dbo.GenreTypes");
         }

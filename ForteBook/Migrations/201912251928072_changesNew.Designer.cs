@@ -7,13 +7,13 @@ namespace ForteBook.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0-preview2-19525-03")]
-    public sealed partial class ProperIdForUser : IMigrationMetadata
+    public sealed partial class changesNew : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ProperIdForUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changesNew));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911302202399_ProperIdForUser"; }
+            get { return "201912251928072_changesNew"; }
         }
         
         string IMigrationMetadata.Source

@@ -32,39 +32,6 @@ namespace ForteBook.Controllers.API
 
             return user;
         }
-
-        //// POST /api/users
-        //[HttpPost]
-        //public User CreateUser(ApplicationUser user)
-        //{
-        //    if (!ModelState.IsValid)
-        //        throw new HttpResponseException(HttpStatusCode.BadRequest);
-
-        //    _context.Users.Add(user);
-        //    _context.SaveChanges();
-
-        //    return user;
-        //}
-
-        //// PUT /api/users/1
-        //[HttpPut]
-        //public void UpdateUser(int id, User user)
-        //{
-        //    if (!ModelState.IsValid)
-        //        throw new HttpResponseException(HttpStatusCode.BadRequest);
-
-        //    var userInDb = _context.Users.SingleOrDefault(u => u.Id == id);
-
-        //    if (userInDb == null)
-        //        throw new HttpResponseException(HttpStatusCode.NotFound);
-
-        //    userInDb.FirstName = user.FirstName;
-        //    userInDb.LastName = user.LastName;
-        //    userInDb.IsSubscribedToNewsletter = user.IsSubscribedToNewsletter;
-
-        //    _context.SaveChanges();
-        //}
-
         // DELETE /api/users/1
         [HttpDelete]
         public void DeleteUser(string id)

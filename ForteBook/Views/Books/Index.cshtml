@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ForteBook.Models.Book>
+﻿@model ForteBook.ViewModels.RatingListModelView
 @{
     ViewBag.Title = "Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,25 +9,23 @@
 <p>
     @Html.ActionLink("New Book", "BookForm", "Books", null, new { @class = "btn btn-primary" })
 </p>
-   
+
 
 <table id="books" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Name</th>
-            @*<th>Rating</th>*@
             <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var book in Model)
+        @foreach (var book in Model.Book)
         {
             <tr>
                 <td>@Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)</td>
                 <td>
-                    <button data-book-id="@book.Id"class="btn-link js-delete">Delete</button>
+                    <button data-book-id="@book.Id" class="btn-link js-delete">Delete</button>
                 </td>
-               @*<td>@book.RatingId</td>*@
             </tr>
         }
     </tbody>
@@ -38,7 +36,7 @@
         $(document).ready(function () {
             var table = $("#books").DataTable();
 
-            $("#books").on("click",".js-delete", function () {
+            $("#books").on("click", ".js-delete", function () {
                 var button = $(this);
                 bootbox.confirm("Are you sure yopu want to delete this book?", function (result) {
                     if (result) {
