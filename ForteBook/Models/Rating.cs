@@ -28,7 +28,7 @@ namespace ForteBook.Models
 
        public Rating()
         {
-            ApplicationUserId = System.Web.HttpContext.Current.User.Identity.Name;
+            ApplicationUserId = HttpContext.Current.User.Identity.Name;
         }
     }
 }

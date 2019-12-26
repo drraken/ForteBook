@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using ForteBook.Models;
 using ForteBook.ViewModels;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace ForteBook.Controllers
 {
@@ -36,9 +36,10 @@ namespace ForteBook.Controllers
 
             return View("Ratings", viewModel);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
+        //[ValidateAntiForgeryToken]
         [Authorize]
+        [HttpPost]
         public ActionResult SaveRating(int id, Rating rating)
         {
             if (!ModelState.IsValid)
@@ -53,10 +54,8 @@ namespace ForteBook.Controllers
                 };
                 return View("Ratings", viewModel);
             }
-
-
-
-            _context.Ratings.Add(rating);
+            if(rating.Id == 0)
+                _context.Ratings.Add(rating);
             try
             {
                 _context.SaveChanges();

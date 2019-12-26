@@ -1,20 +1,20 @@
 ﻿@model ForteBook.ViewModels.RatingsViewModel
 
 @{
-    ViewBag.Title = "TitleName" ;
+    ViewBag.Title = "TitleName";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @*var className = Model.Book.Co > 5 ? "popular" : null;*@
 
 <h2>Rate book: "@Model.Book.Name"</h2>
-  
-    @using (Html.BeginForm("SaveRating", "Ratings", new { id = Model.Book.Id }))
-    {
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Rating.Value)
-    @Html.DropDownListFor(m => m.Rating.Value, new List<SelectListItem>
+@using (Html.BeginForm("SaveRating", "Ratings", new { id = Model.Book.Id }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rating.Value)
+        @Html.DropDownListFor(m => m.Rating.Value, new List<SelectListItem>
     {
     new SelectListItem { Text= "1", Value = "1", Selected=true},
     new SelectListItem { Text= "2", Value = "2"},
@@ -23,11 +23,12 @@
     new SelectListItem { Text= "5", Value = "5"}
     }, "Select Rating", new { @class = "form-control" })
 
-    @Html.ValidationMessageFor(m => m.Rating.Value)
-    @Html.ValidationMessageFor(m => m.Rating.BookId)
-</div>
-        @Html.HiddenFor(m=>m.Rating.BookId, new { id="someId", Value = Model.Book.Id } )
-        @Html.AntiForgeryToken()
-        <button type="submit" class="btn btn-primary ">Save</button>
-    }
-    
+        @Html.ValidationMessageFor(m => m.Rating.Value)
+        @Html.ValidationMessageFor(m => m.Rating.BookId)
+    </div>
+    @Html.HiddenFor(m => m.Rating.BookId, new { id = "someId", Value = Model.Book.Id })
+    @*@Html.AntiForgeryToken()*@
+    @Html.HiddenFor(m => m.Rating.Id)
+    <button type="submit" class="btn btn-primary ">Save</button>
+}
+

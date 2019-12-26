@@ -334,6 +334,14 @@
     <Compile Include="Migrations\201912131951013_RatingsModels.designer.cs">
       <DependentUpon>201912131951013_RatingsModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912251928072_changesNew.cs" />
+    <Compile Include="Migrations\201912251928072_changesNew.designer.cs">
+      <DependentUpon>201912251928072_changesNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912252305300_populatingRatings.cs" />
+    <Compile Include="Migrations\201912252305300_populatingRatings.designer.cs">
+      <DependentUpon>201912252305300_populatingRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -461,6 +469,9 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\HP-cover.jpg" />
+    <Content Include="Content\Lord-cover.jpg" />
+    <Content Include="Content\TwoCities-cover.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -474,6 +485,8 @@
     </Content>
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\ForteBook - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\ForteBook1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -632,6 +645,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912131951013_RatingsModels.resx">
       <DependentUpon>201912131951013_RatingsModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912251928072_changesNew.resx">
+      <DependentUpon>201912251928072_changesNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912252305300_populatingRatings.resx">
+      <DependentUpon>201912252305300_populatingRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,10 +7,10 @@
     {
         public override void Up()
         {
-            Sql("INSERT INTO Books (Name, Rating, Description) VALUES ('Makbet' ,5 ,'Desc 1')");
-            Sql("INSERT INTO Books (Name, Rating, Description) VALUES ('Antygona',6 ,'Desc 2')");
-            Sql("INSERT INTO Books (Name, Rating, Description) VALUES ('Balladyna',2 ,'Desc 3')");
-            Sql("INSERT INTO Books (Name, Rating, Description) VALUES ('Wesele',8 ,'Desc 4')");
+            Sql("INSERT INTO Books (Name,GenreTypeId,Description) VALUES ('Makbet' ,5 ,'Desc 1')");
+            Sql("INSERT INTO Books (Name, GenreTypeId, Description) VALUES ('Antygona',6 ,'Desc 2')");
+            Sql("INSERT INTO Books (Name, GenreTypeId, Description) VALUES ('Balladyna',2 ,'Desc 3')");
+            Sql("INSERT INTO Books (Name, GenreTypeId, Description) VALUES ('Wesele',5 ,'Desc 4')");
         }
         
         public override void Down()
